@@ -1,13 +1,18 @@
 import React from 'react';
-import Nav from './Nav'
+import {Menu} from 'antd';
+import Ds from '../dragComponents/Ds'
 
-export  default  class Left extends React.Component {
 
+export default class Left extends React.Component {
     render() {
         return (
-            <div className="body-left" id="nav">
-               <Nav menus={this.props.menus} act={this.props.act}/>
-            </div>
+            <Menu  mode="inline">
+                {this.props.components.map((c, ind)=>
+                    <Menu.Item key={ind}>
+                        <Ds dsData={c}><div name={c.name} >{c.name}</div></Ds>
+                    </Menu.Item>
+                )}
+            </Menu>
         )
     }
 }

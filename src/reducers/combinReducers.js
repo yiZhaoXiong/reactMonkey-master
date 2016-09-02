@@ -21,12 +21,15 @@
  }*/
 
 import {combineAsyncReducers} from 'redux-async-actions-reducers';
-import menus from './leftMenuList'
-
+import components from './components'
+import pageComponents from './pageComponents'
+import componentCheckedId from './componentCheckedId'
+import layout from './layout'
 
 let ex= combineAsyncReducers({
-    leftMenuList: menus,
-    topMenuList:null
+    components: components,
+    pageComponents:pageComponents,
+    componentCheckedId:componentCheckedId
 });
 
 export default ex;

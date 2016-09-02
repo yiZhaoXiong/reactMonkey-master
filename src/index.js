@@ -7,20 +7,22 @@ import thunk from 'redux-thunk';
 import  reducers from './reducers/combinReducers';
 import {createStore} from 'redux-async-actions-reducers';
 import Index from './containers/index'
+import {load_components} from './reducers/action'
 const store = createStore(reducers, applyMiddleware(thunk));
 
-const CreditPermissionCheck = (nextState, cb) => {
+/*const CreditPermissionCheck = (nextState, cb) => {
     require.ensure([], () => {
         cb(null, require('./containers/creditPermissionCheck'));
     });
-};
+};*/
+
 
 const Root = (
     <Provider store={createStore(reducers)}>
-        <Router history={browserHistory}>
-            <Route path="/" component={Index}>
-                <Route path="creditpermissioncheck" getComponent={CreditPermissionCheck}></Route>
-
+        <Router history={browserHistory} >
+            <Route path="/" component={Index} >
+              {/*  <Route path="creditpermissioncheck" getComponent={CreditPermissionCheck}></Route>
+*/}
             </Route>
         </Router>
     </Provider>
